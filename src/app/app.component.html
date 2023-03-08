@@ -1,4 +1,43 @@
-<h1 i18n>Hola compañeros</h1>>
-<h1 i18n>{{ "01/23/2022" | date }}</h1>
-<h1 i18n>{{ 121234.99 | currency }}</h1>
-<h1 i18n>{{ 121234.99 | number }}</h1>
+<p>
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="sidenav.open()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-sidenav-container
+        class="drawer-container" 
+        (backdropClick)="close('backdrop')"
+    >
+        <mat-sidenav 
+            #sidenav 
+            (keydown.escape)="close('escape')" 
+            disableClose
+        >
+          <mat-nav-list>
+            <a routerLink="checklists"
+              mat-list-item
+              (click)="sidenav.close()">
+              <span i18n>Checklists</span>
+            </a>
+            <a routerLink="checklists/1"
+              mat-list-item
+              (click)="sidenav.close()">
+              <span i18n>Checklist específico</span>
+            </a>
+            <mat-divider></mat-divider>
+          </mat-nav-list>             
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</p>
