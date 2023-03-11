@@ -15,7 +15,7 @@ import { MaterialModule } from '../material/material.module';
   imports: [
     CommonModule,
     ChecklistsRoutingModule,
-    MaterialModule
+    MaterialModule,
   ]
 })
 export class ChecklistsModule { }

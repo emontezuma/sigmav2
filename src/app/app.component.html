@@ -3,7 +3,7 @@
       <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="sidenav.open()">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>My App</span>
+      <span>Plataforma <strong>{{ platform }}</strong></span>
       <span class="example-spacer"></span>
       <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
         <mat-icon>favorite</mat-icon>
@@ -14,11 +14,11 @@
     </mat-toolbar>
     <mat-sidenav-container
         class="drawer-container" 
-        (backdropClick)="close('backdrop')"
+        (backdropClick)="sidenav.close()"
     >
         <mat-sidenav 
             #sidenav 
-            (keydown.escape)="close('escape')" 
+            (keydown.escape)="sidenav.close()" 
             disableClose
         >
           <mat-nav-list>
